@@ -10,7 +10,7 @@ public class Server {
         try {
             HttpServer httpServer = HttpServer.create(new InetSocketAddress("localhost",8080),0);
             ThreadPoolExecutor threadPoolExecutor = (ThreadPoolExecutor) Executors.newFixedThreadPool(10);
-            httpServer.createContext("/test", new HttpServerHandlerJE());
+            httpServer.createContext("/", new HttpServerHandlerJE());
             httpServer.setExecutor(threadPoolExecutor);
             httpServer.start();
         } catch (IOException e) {

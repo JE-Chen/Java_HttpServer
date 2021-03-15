@@ -23,9 +23,7 @@ public class HttpServerHandlerJE implements HttpHandler {
 
     private String handleGetRequest(HttpExchange exchange) {
         return exchange.getRequestURI()
-                .toString()
-                .split("//?")[1]
-                .split("=")[1];
+                .toString().replace("/","");
     }
 
     private void handleResponse(HttpExchange httpExchange, String request) throws IOException {
@@ -35,8 +33,8 @@ public class HttpServerHandlerJE implements HttpHandler {
                 "</head>" +
                 "<body>" +
                 "<h1>" +
+                "Hello " +
                 request +
-                "Hello" +
                 "</h1>" +
                 "</body>" +
                 "</html>";
