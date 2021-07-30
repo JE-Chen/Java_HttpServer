@@ -1,6 +1,7 @@
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
 
+import javax.net.ssl.HttpsURLConnection;
 import java.io.IOException;
 import java.io.OutputStream;
 
@@ -38,7 +39,7 @@ public class HttpServerHandlerJE implements HttpHandler {
                 "</h1>" +
                 "</body>" +
                 "</html>";
-        httpExchange.sendResponseHeaders(200, htmlResponse.length());
+        httpExchange.sendResponseHeaders(HttpsURLConnection.HTTP_OK, htmlResponse.length());
         outputStream.write(htmlResponse.getBytes());
         outputStream.flush();
         outputStream.close();
